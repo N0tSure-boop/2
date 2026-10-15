@@ -24,7 +24,7 @@
     @keyframes introFlagSequence { 0% { transform: translateX(-150vw) rotateZ(-20deg) scale(1.2); opacity: 0; } 20% { transform: translateX(-50vw) rotateZ(-10deg) scale(1.1); opacity: 1; } 50% { transform: translateX(0) rotateZ(0deg) scale(1); opacity: 1; } 80% { transform: translateX(0) rotateZ(0deg) scale(1); opacity: 1; } 100% { transform: translateX(0) rotateZ(0deg) scale(1); opacity: 0; } }
 
     /* ========== 左上角 3D 波浪五星红旗 ========== */
-    .flag-wrapper { position: fixed; top: 15px; left: 20px; z-index: 9999; perspective: 800px; opacity: 0; transition: opacity 1s ease-in; }
+    .flag-wrapper { position: fixed; top: 15px; left: 112px; z-index: 9999; perspective: 800px; opacity: 0; transition: opacity 1s ease-in; }
     .flag-wrapper.show { opacity: 1; }
     .flag-3d { width: 140px; height: 95px; position: relative; transform-style: preserve-3d; animation: flagWave 3s ease-in-out infinite alternate; transform-origin: left center; }
     .flag-body { width: 100%; height: 100%; background: linear-gradient(135deg, #DA251D 0%, #B71C1C 100%); border-radius: 4px; position: relative; box-shadow: 5px 5px 15px rgba(0,0,0,0.6), inset -5px 0 15px rgba(0,0,0,0.3); overflow: hidden; }
@@ -48,10 +48,14 @@
     @keyframes slideStar { 0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translate(var(--tx), var(--ty)) rotate(360deg) scale(0.2); opacity: 0; } }
 
     /* ========== 导航 ========== */
-    .top-nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:flex-end; align-items:center; padding:20px 60px; backdrop-filter:blur(15px); background:rgba(10,22,40,0.8); border-bottom:1px solid rgba(255,215,0,0.2); opacity: 0; transition: opacity 1s ease-in; }
+    .top-nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:flex-end; align-items:center; padding:20px 120px 20px 60px; backdrop-filter:blur(15px); background:rgba(10,22,40,0.8); border-bottom:1px solid rgba(255,215,0,0.2); opacity: 0; transition: opacity 1s ease-in; }
     .top-nav.show { opacity: 1; }
     .nav-links a { color:#FFF; margin-left:36px; cursor:pointer; font-size:1em; letter-spacing:2px; transition:all 0.3s; text-decoration: none; }
     .nav-links a:hover { color:#FFD700; text-shadow: 0 0 15px #FFD700; transform: scale(1.1); }
+
+    /* ========== 左右上角校徽与团徽 ========== */
+    .corner-emblems { position:fixed; top:14px; left:18px; right:18px; z-index:10001; display:flex; justify-content:space-between; align-items:flex-start; pointer-events:none; }
+    .corner-emblem { width:clamp(56px, 6vw, 82px); height:clamp(56px, 6vw, 82px); object-fit:cover; border-radius:50%; background:#FFF; border:2px solid rgba(255,215,0,0.9); box-shadow:0 4px 18px rgba(0,0,0,0.65), 0 0 18px rgba(255,215,0,0.35); }
 
     /* ========== 首屏 ========== */
     .hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 40px; position:relative; }
@@ -177,7 +181,7 @@
 
     /* ========== 响应式 ========== */
     @media (max-width:900px) {
-        .top-nav { padding:15px 20px; } .nav-links a { margin-left:15px; font-size:0.85em; } .hero-title { font-size:3.5em; letter-spacing:5px; } .title { font-size:2.2em; margin-bottom:40px; } .section { padding:80px 5%; } .profile-layout { grid-template-columns: 1fr; } .profile-cards { grid-template-columns: 1fr; } .flip-grid { grid-template-columns: 1fr; } .flip-card { min-height: 300px; } .honor-item { flex-direction: column; text-align: center; align-items: center; padding: 20px; } .honor-title-row { justify-content: center; } .honor-img-area { width: 100%; max-width: 360px; min-height: 200px; max-height: 70vh; } .honor-img-area img { max-height: 62vh; } .gallery-grid { display: block; columns: 150px 3; column-gap: 16px; } .gallery-item, .gallery-item.wide, .gallery-item.tall { aspect-ratio: auto; grid-column: auto; grid-row: auto; margin: 0 0 16px; break-inside: avoid; -webkit-column-break-inside: avoid; page-break-inside: avoid; animation: none; } .gallery-item img { height: auto; object-fit: contain; } .score-display { flex-direction: column; } .ending-title { font-size:2.8em; letter-spacing:5px; } .ending-sub { font-size:1.2em; } .timeline { padding-left:40px; } .tl-item::before { left:-49px; } .flag-wrapper { top: 10px; left: 10px; } .flag-3d { width: 100px; height: 70px; }
+        .top-nav { padding:15px 84px 15px 20px; } .nav-links a { margin-left:15px; font-size:0.85em; } .corner-emblems { top:10px; left:10px; right:10px; } .corner-emblem { width:56px; height:56px; } .hero-title { font-size:3.5em; letter-spacing:5px; } .title { font-size:2.2em; margin-bottom:40px; } .section { padding:80px 5%; } .profile-layout { grid-template-columns: 1fr; } .profile-cards { grid-template-columns: 1fr; } .flip-grid { grid-template-columns: 1fr; } .flip-card { min-height: 300px; } .honor-item { flex-direction: column; text-align: center; align-items: center; padding: 20px; } .honor-title-row { justify-content: center; } .honor-img-area { width: 100%; max-width: 360px; min-height: 200px; max-height: 70vh; } .honor-img-area img { max-height: 62vh; } .gallery-grid { display: block; columns: 150px 3; column-gap: 16px; } .gallery-item, .gallery-item.wide, .gallery-item.tall { aspect-ratio: auto; grid-column: auto; grid-row: auto; margin: 0 0 16px; break-inside: avoid; -webkit-column-break-inside: avoid; page-break-inside: avoid; animation: none; } .gallery-item img { height: auto; object-fit: contain; } .score-display { flex-direction: column; } .ending-title { font-size:2.8em; letter-spacing:5px; } .ending-sub { font-size:1.2em; } .timeline { padding-left:40px; } .tl-item::before { left:-49px; } .flag-wrapper { top: 10px; left: 76px; } .flag-3d { width: 100px; height: 70px; }
     }
 </style>
 </head>
@@ -197,6 +201,12 @@
 
 <!-- 粒子 Canvas -->
 <canvas id="particle-canvas"></canvas>
+
+<!-- 固定在视口左右上角的校徽与团徽 -->
+<div class="corner-emblems" aria-label="学校标识">
+    <img class="corner-emblem" src="校徽.jpg" alt="湖南外国语职业学院校徽">
+    <img class="corner-emblem" src="团徽.jpg" alt="湖南外国语职业学院团徽">
+</div>
 
 <!-- 3D 波浪五星红旗 -->
 <div class="flag-wrapper" id="flag-wrapper">
